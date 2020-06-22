@@ -1,0 +1,23 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      {{title.title}} 
+    
+    </a>
+  
+    <button class="navbar-toggler" type="button"
+            (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+
+    <div class="collapse navbar-collapse"
+         [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let n of navs" class="nav-item">
+          <a class="nav-link" [routerLink]="n.path">{{n.label}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+

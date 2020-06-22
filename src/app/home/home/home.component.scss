@@ -1,0 +1,8 @@
+:host{
+    direction: rtl;
+}
+.wrapper{
+    display: grid;
+    grid-template-rows: 40vh,10vh 50vh;
+    direction: rtl;
+}
