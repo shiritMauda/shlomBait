@@ -1,16 +1,24 @@
-<h1>{{title.title}}</h1>
+<div class="wrapper">
 <div class="form">
+
+    <h3>{{title.title}}</h3>
     <form action="login">
         <div class="userId">
+            <input type="number" name="userId" [(ngModel)]="userId">
             <label for="userId">תעודת זהות</label>
-            <input type="number" name="userId">
+            
         </div>
         <div class="password">
+            <input type="text" name="password" [(ngModel)]="userPassword">
             <label for="password">סיסמא</label>
-            <input type="text" name="password">
+            
         </div>
-        <div class="submmit">
-            <button>{{title.btn}}</button>
+        <div class="button">
+            <button (click)="onClick()">{{title.btn}}</button>
+        </div>
+        <div class="msgError">
+            {{msgError}}
         </div>
     </form>
+</div>
 </div>

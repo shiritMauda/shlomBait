@@ -6,12 +6,13 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ClientComponent } from '../contents/client/client.component';
+import { CareLogComponent } from '../contents/care-log/care-log.component';
 
 
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, BodyComponent, NavbarComponent,
-  ClientComponent],
+    ClientComponent, CareLogComponent],
   imports: [
     CommonModule,
     HomeRoutingModule
