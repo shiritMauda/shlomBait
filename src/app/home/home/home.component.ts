@@ -14,6 +14,10 @@ export class HomeComponent implements OnInit {
   constructor(private activeRouter: ActivatedRoute, private router: Router, private manageService: ManageService) { }
 
   ngOnInit() {
+    this.getUrlParams();
+
+  }
+  getUrlParams() {
     this.activeRouter.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
 
@@ -26,6 +30,5 @@ export class HomeComponent implements OnInit {
         this.manageService.getThisUser(this.id);
       }
     });
-
   }
 }

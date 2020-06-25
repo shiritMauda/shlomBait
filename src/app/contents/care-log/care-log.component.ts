@@ -19,15 +19,18 @@ export class CareLogComponent implements OnInit {
   constructor(private clientService: ClientService, private router: ActivatedRoute) { }
 
   ngOnInit() {
-    this.router.paramMap.subscribe(params => {
-      this.id = Number(params.get('id'));
-      this.carelogs = this.clientService.getcareLogForClient(this.id);
-      this.setClientDetails(this.id);
-    });
+    this.getUrlParams();
   }
 
   setClientDetails(id: number) {
     this.thisClient = this.clientService.getClient(this.id);
   }
 
+  getUrlParams() {
+    this.router.paramMap.subscribe(params => {
+      this.id = Number(params.get('id'));
+      this.carelogs = this.clientService.getcareLogForClient(this.id);
+      this.setClientDetails(this.id);
+    });
+  }
 }

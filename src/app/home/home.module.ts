@@ -7,12 +7,13 @@ import { BodyComponent } from './body/body.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ClientComponent } from '../contents/client/client.component';
 import { CareLogComponent } from '../contents/care-log/care-log.component';
+import { SearchComponent } from '../contents/search/search.component';
 
 
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, BodyComponent, NavbarComponent,
-    ClientComponent, CareLogComponent],
+    ClientComponent, CareLogComponent, SearchComponent],
   imports: [
     CommonModule,
     HomeRoutingModule
