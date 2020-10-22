@@ -3,6 +3,7 @@ import { log } from 'util';
 import { ManageService } from 'src/service/manage.service';
 import { IUser } from 'src/app/user.model';
 import { Router } from '@angular/router';
+import { UserService } from 'src/service/user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private manageService: ManageService, private router: Router) { }
+  constructor(private service: UserService, private router: Router) { }
   userId: number;
   userPassword: string;
   thisUser: IUser;
@@ -23,7 +24,26 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit() {
   }
-  onClick() {
+
+  login() {
+    console.log('login');
+    
+    const requestToServer = this.service.login(this.userId,this.userPassword);
+
+    // Call the Http Request
+    requestToServer.subscribe(res => {
+      console.log('User from server', res);
+      if (res) {
+        this.service.setUser(res);
+      } else {
+        this.msgError = 'פרטים שגויים.  נסה שנית';
+      }
+
+    });
+
+  }
+//הפונקציה הקודת לפני הכנסת פניות לHTTP
+/*   onClick() {
     this.thisUser = this.manageService.getThisUser(this.userId);
     console.log(this.thisUser);
     if (!this.thisUser) {
@@ -31,12 +51,12 @@ export class LoginComponent implements OnInit {
     } else {
       if (this.thisUser.password === this.userPassword) {
         /* כניסה למערכת */
-        const url = 'home/' + this.thisUser.id;
+/*         const url = 'home/' + this.thisUser.id;
         this.router.navigate([url]);
       } else {
         this.msgError = 'הסיסמא אינה נכונה';
       }
     }
-  }
+  }  */
 
 }
